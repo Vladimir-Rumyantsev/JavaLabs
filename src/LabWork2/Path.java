@@ -1,8 +1,8 @@
 package LabWork2;
 
 public class Path {
-    private City destination;
-    private int cost;
+    private final City destination;
+    private final int cost;
 
     public Path(City destination, int cost) {
         this.destination = destination;
@@ -10,6 +10,6 @@ public class Path {
     }
 
     public String toString() {
-        return destination.getName() + ": " + cost;
+        return "(" + destination.getName() + ": " + cost + ")";
     }
 }
