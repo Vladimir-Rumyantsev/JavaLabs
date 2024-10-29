@@ -96,5 +96,16 @@ public class Main {
                 "\n" + f2 + " / " + 2 + " = " + f12 +
                 "\nf1.sum(f2).div(f3).minus(5) = (" + f1 + " + " + f2 + ") / " + f3 + " - 5 = " + f13
         );
+
+        try {
+            System.out.print("\n0/4 + 2/0 = ");
+            Fraction f14 = new Fraction(0, 4);
+            Fraction f15 = new Fraction(2, 0);
+            System.out.println(f14.sum(f15));
+        } catch (IllegalArgumentException ex) {
+            System.out.println("\n" + ex);
+        } finally {
+            System.out.println("\nПрограмма окончила работу!");
+        }
     }
 }
