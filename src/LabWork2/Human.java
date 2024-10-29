@@ -1,7 +1,7 @@
 package LabWork2;
 
 public class Human {
-    private String Name;
+    private Object Name;
     private int height;
 
     public Human() {
@@ -14,7 +14,7 @@ public class Human {
         this.height = height;
     }
 
-    public void setName(String Name) {
+    public void setName(Object Name) {
         this.Name = Name;
     }
 

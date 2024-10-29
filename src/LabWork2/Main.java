@@ -18,9 +18,9 @@ public class Main {
 
         System.out.println("\nЗадание 1.3:\n" + name1 + "\n" + name2 + "\n" + name3);
 
-        human1.setName(name1.toString());
-        human2.setName(name2.toString());
-        human3.setName(name3.toString());
+        human1.setName(name1);
+        human2.setName(name2);
+        human3.setName(name3);
 
         System.out.println("\nЗадание 2.2:");
         human1.printInformation();
