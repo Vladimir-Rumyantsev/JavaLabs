@@ -1,6 +1,6 @@
 package LabWork3;
 
-public class Fraction {
+public final class Fraction extends Number {
     private final int numerator;
     private final int denominator;
 
@@ -29,6 +29,7 @@ public class Fraction {
     }
 
     // Метод для получения строкового представления дроби
+    @Override
     public String toString() {
         return numerator + "/" + denominator;
     }
@@ -93,5 +94,36 @@ public class Fraction {
             a = temp;
         }
         return a;
+    }
+
+    // Реализация методов, наследуемых от класса Number
+    @Override
+    public int intValue() {
+        return numerator / denominator;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) (numerator / denominator);
+    }
+
+    @Override
+    public float floatValue() {
+        return ((float) numerator) / denominator;
+    }
+
+    @Override
+    public double doubleValue() {
+        return ((double) numerator) / denominator;
+    }
+
+    @Override
+    public byte byteValue() {
+        return (byte) (numerator / denominator);
+    }
+
+    @Override
+    public short shortValue() {
+        return (short) (numerator / denominator);
     }
 }

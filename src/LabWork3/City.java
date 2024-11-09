@@ -26,7 +26,12 @@ public class City {
     }
 
     public void setPath(LinkedList<Path> paths) {
-        this.paths = new LinkedList<>(paths);
+        this.paths = new LinkedList<>();
+        for (Path path : paths) {
+            if (!hasPathTo(path.getDestination())) {
+                this.paths.add(path);
+            }
+        }
     }
 
     public String getName() {
