@@ -75,7 +75,8 @@ public class Main {
                 "\n\nЗадание 5.1:\n2 + (3/5) + 2.3 = " + m.sumNumbers(arr1) +
                 "\n3.6 + (49/12) + 3 + (3/2) = " + m.sumNumbers(arr2) +
                 "\n(1/3) + 1 = " + m.sumNumbers(arr3) +
-                "\n\nЗадание 6.5:\n" + F.equals(F2)
+                "\n\nЗадание 6.5:\nОбновлённая и устаревшая версия сущности Город эквивалентны при одинаковых данных: "
+                + F.equals(F2)
         );
 
         LabWork3.Fraction f5 = new LabWork3.Fraction(3, 5);
