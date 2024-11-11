@@ -9,14 +9,6 @@ public class Path {
         this.cost = cost;
     }
 
-    public City getDestination() {
-        return destination;
-    }
-
-    public int getCost() {
-        return cost;
-    }
-
     public String toString() {
         return "(" + destination.getName() + ": " + cost + ")";
     }

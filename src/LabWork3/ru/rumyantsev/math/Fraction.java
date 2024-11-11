@@ -1,17 +1,26 @@
-package LabWork3;
+package LabWork3.ru.rumyantsev.math;
 
-public class Fraction {
-    private int numerator;
-    private int denominator;
+public final class Fraction extends Number {
+    private final int numerator;
+    private final int denominator;
 
     // Конструктор для создания дроби с указанием числителя и знаменателя
     public Fraction(int numerator, int denominator) {
         if (denominator == 0) {
             throw new IllegalArgumentException("Знаменатель не может быть равен нулю");
         }
+
+        int gcd = gcd(numerator, denominator);
+        numerator /= gcd;
+        denominator /= gcd;
+
+        if (denominator < 0) {
+            numerator *= -1;
+            denominator *= -1;
+        }
+
         this.numerator = numerator;
         this.denominator = denominator;
-        simplify();
     }
 
     // Конструктор для создания дроби только с указанием числителя
@@ -20,6 +29,7 @@ public class Fraction {
     }
 
     // Метод для получения строкового представления дроби
+    @Override
     public String toString() {
         return numerator + "/" + denominator;
     }
@@ -76,18 +86,6 @@ public class Fraction {
         return div(new Fraction(number));
     }
 
-    // Метод для сокращения дроби
-    private void simplify() {
-        int gcd = gcd(numerator, denominator);
-        numerator /= gcd;
-        denominator /= gcd;
-
-        if (denominator < 0) {
-            numerator *= -1;
-            denominator *= -1;
-        }
-    }
-
     // Метод для нахождения наибольшего общего делителя (GCD)
     private int gcd(int a, int b) {
         while (b != 0) {
@@ -96,5 +94,42 @@ public class Fraction {
             a = temp;
         }
         return a;
+    }
+
+    // Реализация методов, наследуемых от класса Number
+    @Override
+    public int intValue() {
+        return numerator / denominator;
+    }
+
+    @Override
+    public long longValue() {
+        return (long) numerator / denominator;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) numerator / denominator;
+    }
+
+    @Override
+    public double doubleValue() {
+        return (double) numerator / denominator;
+    }
+
+    @Override
+    public byte byteValue() {
+        return (byte) (numerator / denominator);
+    }
+
+    @Override
+    public short shortValue() {
+        return (short) (numerator / denominator);
+    }
+
+    // Переопределение метода clone
+    @Override
+    public Fraction clone() {
+        return new Fraction(this.numerator, this.denominator);
     }
 }

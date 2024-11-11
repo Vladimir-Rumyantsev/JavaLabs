@@ -1,81 +1,36 @@
 package LabWork3;
 
-import java.util.LinkedList;
-
 public class City {
-    private String name;
-    private LinkedList<Path> paths;
+    private final String name;
+    private Path[] paths;
 
     public City(String name) {
         this.name = name;
-        this.paths = new LinkedList<>();
+        this.paths = null;
     }
 
-    public City(String name, LinkedList<Path> paths) {
+    public City(String name, Path[] paths) {
         this.name = name;
-        this.paths = new LinkedList<>();
-        for (Path path : paths) {
-            if (!hasPathTo(path.getDestination())) {
-                this.paths.add(path);
-            }
-        }
+        this.paths = paths;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPath(LinkedList<Path> paths) {
-        this.paths = new LinkedList<>();
-        for (Path path : paths) {
-            if (!hasPathTo(path.getDestination())) {
-                this.paths.add(path);
-            }
-        }
+    public void setPath(Path[] paths) {
+        this.paths = paths;
     }
 
     public String getName() {
         return name;
     }
 
-    public LinkedList<Path> getPaths() {
-        return new LinkedList<>(paths);
-    }
-
-    public boolean hasPathTo(City destination) {
-        for (Path path : paths) {
-            if (path.getDestination().equals(destination)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void addPath(City destination, int cost) {
-        if (!hasPathTo(destination)) {
-            paths.add(new Path(destination, cost));
-        }
-    }
-
-    public void removePath(City destination) {
-        for (Path path : paths) {
-            if (path.getDestination().equals(destination)) {
-                paths.remove(path);
-                return;
-            }
-        }
-    }
-
     public String toString() {
-        StringBuilder result = new StringBuilder();
-
+        StringBuilder result = new StringBuilder(name + ": {");
         for (Path path : paths) {
-            result.append(path).append(", ");
+            result.append(path.toString() + ", ");
         }
         if (result.length() >= 2) {
             result.delete(result.length() - 2, result.length());
         }
 
-        return name + ": {" + result + "}";
+        return result.append("}").toString();
     }
 }

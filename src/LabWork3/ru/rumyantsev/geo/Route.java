@@ -1,4 +1,4 @@
-package LabWork3;
+package LabWork3.ru.rumyantsev.geo;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
