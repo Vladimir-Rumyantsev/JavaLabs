@@ -47,10 +47,12 @@ public class Main {
         F.addPath(E, 2);
         F.addPath(E, 3);
 
-        City F2 = new City("F2");
-        Path[] pathsF2 = new Path[2];
-        pathsF2[0] = new Path(B, 1);
-        pathsF2[1] = new Path(E, 2);
+        LabWork3.City B2 = new LabWork3.City("B2");
+        LabWork3.City E2 = new LabWork3.City("E2");
+        LabWork3.City F2 = new LabWork3.City("F2");
+        LabWork3.Path[] pathsF2 = new LabWork3.Path[2];
+        pathsF2[0] = new LabWork3.Path(B2, 1);
+        pathsF2[1] = new LabWork3.Path(E2, 2);
         F2.setPath(pathsF2);
 
         Route FDRoute = new Route(F, D);
@@ -75,8 +77,7 @@ public class Main {
                 "\n\nЗадание 5.1:\n2 + (3/5) + 2.3 = " + m.sumNumbers(arr1) +
                 "\n3.6 + (49/12) + 3 + (3/2) = " + m.sumNumbers(arr2) +
                 "\n(1/3) + 1 = " + m.sumNumbers(arr3) +
-                "\n\nЗадание 6.5:\nОбновлённая и устаревшая версия сущности Город эквивалентны при одинаковых данных: "
-                + F.equals(F2)
+                "\n\nЗадание 6.5:\nЭквивалентность городов = " + F.equals(F2)
         );
 
         LabWork3.Fraction f5 = new LabWork3.Fraction(3, 5);
@@ -93,7 +94,7 @@ public class Main {
             double result = m.power(args[0], args[1]);
             System.out.println("Результат возведения первого числа args во второе: " + result);
         } else {
-            System.out.println("Нет двух элементов в args для возведения одного во второе.");
+            System.out.println("В args меньше двух элементов.");
         }
 
         Fraction f9 = f4.clone();

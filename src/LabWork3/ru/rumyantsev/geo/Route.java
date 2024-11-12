@@ -1,7 +1,6 @@
 package LabWork3.ru.rumyantsev.geo;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Route {
@@ -37,34 +36,6 @@ public class Route {
     public City getEndCity() {
         return endCity;
     }
-
-//    public City[] getRoute() {
-//        List<City> route = new ArrayList<>();
-//        findRoute(startCity, endCity, new LinkedList<>(), route);
-//        return route.toArray(new City[0]);
-//    }
-//
-//    private boolean findRoute(City current, City destination, LinkedList<City> visited, List<City> route) {
-//        visited.add(current);
-//        route.add(current);
-//
-//        if (current.equals(destination)) {
-//            return true;
-//        }
-//
-//        for (Path path : current.getPaths()) {
-//            City nextCity = path.getDestination();
-//            if (!visited.contains(nextCity)) {
-//                if (findRoute(nextCity, destination, visited, route)) {
-//                    return true;
-//                }
-//            }
-//        }
-//
-//        route.remove(route.size() - 1);
-//        visited.remove(current);
-//        return false;
-//    }
 
     public City[] getRoute() {
         List<City> route = new ArrayList<>();
@@ -106,7 +77,7 @@ public class Route {
         for (City city : route) {
             sb.append(city.getName()).append(" -> ");
         }
-        sb.delete(sb.length() - 4, sb.length()); // Remove the last " -> "
+        sb.delete(sb.length() - 4, sb.length());
         return sb.toString();
     }
 }
