@@ -38,14 +38,44 @@ public class Route {
         return endCity;
     }
 
+//    public City[] getRoute() {
+//        List<City> route = new ArrayList<>();
+//        findRoute(startCity, endCity, new LinkedList<>(), route);
+//        return route.toArray(new City[0]);
+//    }
+//
+//    private boolean findRoute(City current, City destination, LinkedList<City> visited, List<City> route) {
+//        visited.add(current);
+//        route.add(current);
+//
+//        if (current.equals(destination)) {
+//            return true;
+//        }
+//
+//        for (Path path : current.getPaths()) {
+//            City nextCity = path.getDestination();
+//            if (!visited.contains(nextCity)) {
+//                if (findRoute(nextCity, destination, visited, route)) {
+//                    return true;
+//                }
+//            }
+//        }
+//
+//        route.remove(route.size() - 1);
+//        visited.remove(current);
+//        return false;
+//    }
+
     public City[] getRoute() {
         List<City> route = new ArrayList<>();
-        findRoute(startCity, endCity, new LinkedList<>(), route);
-        return route.toArray(new City[0]);
+        if (findRoute(startCity, endCity, route)) {
+            return route.toArray(new City[0]);
+        } else {
+            return new City[0];
+        }
     }
 
-    private boolean findRoute(City current, City destination, LinkedList<City> visited, List<City> route) {
-        visited.add(current);
+    private boolean findRoute(City current, City destination, List<City> route) {
         route.add(current);
 
         if (current.equals(destination)) {
@@ -54,15 +84,14 @@ public class Route {
 
         for (Path path : current.getPaths()) {
             City nextCity = path.getDestination();
-            if (!visited.contains(nextCity)) {
-                if (findRoute(nextCity, destination, visited, route)) {
+            if (!route.contains(nextCity)) {
+                if (findRoute(nextCity, destination, route)) {
                     return true;
                 }
             }
         }
 
         route.remove(route.size() - 1);
-        visited.remove(current);
         return false;
     }
 
