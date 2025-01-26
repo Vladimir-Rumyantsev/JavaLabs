@@ -1,4 +1,4 @@
-package LabWork5;
+package LabWork5Max;
 
 public class Main {
 
