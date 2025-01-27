@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-public class UniqueLettersCounter {
+public class Task_5_7 {
     public static void main(String[] args) {
         String filePath = "src/LabWork5Max/file.txt"; // Укажите путь к вашему файлу
 

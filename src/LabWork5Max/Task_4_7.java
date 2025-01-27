@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GasStationMonitor {
+public class Task_4_7 {
     public static void main(String[] args) {
 
         System.out.print("Задание 4.7:\n\nВведите N (число АЗС): ");
