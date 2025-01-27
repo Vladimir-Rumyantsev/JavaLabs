@@ -1,19 +1,30 @@
 package LabWork5;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Task_4_2 {
     public static void main(String[] args) {
-        System.out.print("\nЗадание 4.2:\n\nВведите количество участников олимпиады: ");
+        System.out.print("\nЗадание 4.2:\n");
 
         Scanner scanner = new Scanner(System.in);
 
-        int N = scanner.nextInt();
-        while (N > 250 || N < 1) {
-            System.out.print("Пожалуйста, введите число от 1 до 250: ");
-            N = scanner.nextInt();
+        int N;
+        while (true) {
+            System.out.print("\nВведите количество участников олимпиады (число от 1 до 250): ");
+            if (scanner.hasNextInt()) {
+                N = scanner.nextInt();
+                if (N >= 1 && N <= 250) {
+                    break;
+                } else {
+                    System.out.print("\nПожалуйста, введите число в диапазоне от 1 до 250.");
+                }
+            } else {
+                System.out.print("\nПожалуйста, введите число в диапазоне от 1 до 250.");
+                scanner.next(); // Очистка буфера от некорректного ввода
+            }
         }
         scanner.nextLine(); // Считываем пустую строку после ввода числа
 
@@ -24,15 +35,16 @@ public class Task_4_2 {
                     " в формате <Фамилия> <Имя> <Балл> <Балл> <Балл>: ");
             String input = scanner.nextLine();
             String[] parts = input.split(" ");
-            if (parts.length != 5) {
-                System.out.println("Неверный ввод данных для участника!");
-                continue;
-            }
             try {
                 int score1 = Integer.parseInt(parts[2]);
                 int score2 = Integer.parseInt(parts[3]);
                 int score3 = Integer.parseInt(parts[4]);
-                participants.add(new String[]{parts[0], parts[1], String.valueOf(score1), String.valueOf(score2), String.valueOf(score3)});
+                if ((parts.length != 5) || (parts[0].length() > 20) || (parts[1].length() > 15) || (score1 > 25) ||
+                        (score1 < 1) || (score2 > 25) || (score2 < 1) || (score3 > 25) || (score3 < 1)) {
+                    System.out.println("Неверный ввод данных для участника!");
+                    continue;
+                }
+                participants.add(parts);
                 i++;
             } catch (NumberFormatException e) {
                 System.out.println("Неверный ввод данных для участника!");
@@ -45,10 +57,7 @@ public class Task_4_2 {
         for (String[] parts : participants) {
             String lastName = parts[0];
             String firstName = parts[1];
-            int score1 = Integer.parseInt(parts[2]);
-            int score2 = Integer.parseInt(parts[3]);
-            int score3 = Integer.parseInt(parts[4]);
-            int totalScore = score1 + score2 + score3;
+            int totalScore = Integer.parseInt(parts[2]) + Integer.parseInt(parts[3]) + Integer.parseInt(parts[4]);
 
             if (totalScore > maxScore) {
                 maxScore = totalScore;
