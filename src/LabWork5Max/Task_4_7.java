@@ -8,11 +8,20 @@ import java.util.List;
 public class Task_4_7 {
     public static void main(String[] args) {
 
-        System.out.print("Задание 4.7:\n\nВведите N (число АЗС): ");
+        System.out.print("\nВведите N (число АЗС): ");
 
+        int N;
         Scanner scanner = new Scanner(System.in);
-        int N = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+        while (true) {
+            try {
+                N = scanner.nextInt();
+                break;
+            } catch (Exception e) {
+                System.out.print("Неверный ввод данных для количества АЗС!\nВведите количество АЗС (число): ");
+                scanner.next();
+            }
+        }
+        scanner.nextLine();
 
         List<String[]> inputData = new ArrayList<>();
 

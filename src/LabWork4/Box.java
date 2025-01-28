@@ -6,7 +6,7 @@ public class Box<T> {
     // Метод для размещения объекта в коробку
     public void put(T item) {
         if (content != null) {
-            throw new IllegalStateException("Box is already occupied");
+            throw new IllegalStateException("Коробка не пуста");
         }
         content = item;
     }

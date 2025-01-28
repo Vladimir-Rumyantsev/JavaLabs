@@ -13,5 +13,5 @@ public @interface ToString {
         NO
     }
 
-    Value value() default Value.YES; // Необязательное свойство value с значением по умолчанию YES
+    Value value() default Value.YES; // Необязательное свойство value со значением по умолчанию YES
 }

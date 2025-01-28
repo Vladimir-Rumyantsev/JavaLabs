@@ -11,6 +11,9 @@ public class Task_3_2 {
         List<Integer> L2 = new ArrayList<>(List.of(10, 11, 12));
 
         List<Integer> result = replaceFirstOccurrence(L, L1, L2);
+        System.out.println(L);
+        System.out.println(L1);
+        System.out.println(L2 + "\n");
         System.out.println(result); // Вывод: [1, 2, 3, 10, 11, 12, 7, 8, 9]
     }
 

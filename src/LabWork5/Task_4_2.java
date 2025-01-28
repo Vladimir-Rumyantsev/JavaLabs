@@ -40,7 +40,7 @@ public class Task_4_2 {
                 int score2 = Integer.parseInt(parts[3]);
                 int score3 = Integer.parseInt(parts[4]);
                 if ((parts.length != 5) || (parts[0].length() > 20) || (parts[1].length() > 15) || (score1 > 25) ||
-                        (score1 < 1) || (score2 > 25) || (score2 < 1) || (score3 > 25) || (score3 < 1)) {
+                        (score1 < 0) || (score2 > 25) || (score2 < 0) || (score3 > 25) || (score3 < 0)) {
                     System.out.println("Неверный ввод данных для участника!");
                     continue;
                 }
